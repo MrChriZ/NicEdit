@@ -6,6 +6,15 @@
  * For more information visit http://nicedit.com/
  * Do not remove this copyright message
  */
+
+var cursorX;
+var cursorY;
+document.onmousemove = function (e) {
+    cursorX = e.pageX;
+    cursorY = e.pageY;
+}
+
+
 var bkExtend = function() {
   var args = arguments;
   if (args.length == 1) args = [this, args[0]];
@@ -1133,8 +1142,8 @@ var nicEditorPane = bkClass.extend({
       zIndex: '99999',
       overflow: 'hidden',
       position: 'absolute',
-      left: this.pos[0] + 'px',
-      top: this.pos[1] + 'px'
+      left: cursorX + "px",
+      top: cursorY + "px"
     });
     this.pane = new bkElement('div').setStyle({
       fontSize: '12px',
